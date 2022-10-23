@@ -1,0 +1,78 @@
+---
+title: "dashboard Biathlon"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    theme: sandstone
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(readxl)
+Biathlon <- read_excel("Biathlon.xlsx")
+```
+
+```{r}
+#On refait la colonne retard car il manque des données
+library(dplyr)
+library(tidyverse)
+
+#On recrée une colonne retard car il manquait des valeurs
+Biathlon <- Biathlon |> mutate(Retard = Course_Time-Best_Course_Time)
+#On supprime les données manquantes dans Course_Time
+Biathlon <- subset(Biathlon, Course_Time != "NA")
+#On supprime les données manquantes dans Shooting 
+Biathlon <- subset(Biathlon, Shooting != "NA")
+Biathlon <- data.frame(Biathlon)
+```
+Données
+====================================================
+
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Tableau de données saison 2019 à 2021
+
+```{r, echo = FALSE}
+library(DT)
+datatable(Biathlon,
+  extensions = 'Buttons',
+          class = "hover cell-border compact",
+          caption = "Résumé des données de biathlon de 2019 à 2021",
+          options = list(dom='Bfrtip',
+                         buttons=c('copy', 'csv', 'excel', 'print', 'pdf')))
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Matrice des correlations
+
+```{r}
+library(corrplot)
+
+#Biathlon_quant <- Biathlon |> select(Biathlon(-)
+#cc <- cor(Biathlon_quant)
+#mat.cor <- corrplot::corrplot(cc)
+```
+
+### Chart C
+
+```{r}
+
+```
+
+Modèle linéaire
+============================================
+
+Column{data-width=500}
+----------------------------------------------------
+###Modèle
+
+```
+
+
