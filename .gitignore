@@ -2,3 +2,13 @@
 .Rhistory
 .RData
 .Ruserdata
+
+/Biathlon.xlsx
+/.RData
+/.Rhistory
+/Projet.Rproj
+/Projet_biathlon.qmd
+/dashboard_biathlon.RMD
+/dashboard_biathlon.html
+/App_Biathlon/server.R
+/App_Biathlon/ui.R
