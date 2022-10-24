@@ -1,0 +1,3 @@
+"0","Biathlon_quant <- Biathlon |> select(-Saison,-Gender,-Finish_Ranking,-Athlete,-nationalité,-Date,-Races,-Location,-Type)"
+"0","cc <- cor(Biathlon_quant)"
+"0","mat.cor <- corrplot::corrplot(cc)"

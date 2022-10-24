@@ -1,0 +1,6 @@
+"0","datatable(Biathlon,"
+"0","  extensions = 'Buttons',"
+"0","          class = ""hover cell-border compact"","
+"0","          caption = ""Résumé des données de biathlon de 2019 à 2021"","
+"0","          options = list(dom='Bfrtip',"
+"0","                         buttons=c('copy', 'csv', 'excel', 'print', 'pdf')))"
