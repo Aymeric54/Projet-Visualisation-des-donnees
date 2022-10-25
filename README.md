@@ -13,3 +13,6 @@ Questions :
 - Est-ce que les types de départs (Mass-start, Sprint, Individual..) ont des conséquences sur la performance de ski et sur le shooting ?
 - Trouver un point commun pour ceux qui arrive à chaque fois dans le top10
 - Est-ce que les skieurs sont meilleurs lorsqu'ils sont à domicile (dans leur pays) ?
+- Y a-til des pics de formes? 
+- Evolution du ranking au cours du temps par pays?
+- 
