@@ -29,7 +29,9 @@ shinyUI(fluidPage(
         #First tab content
         tabItem(tabName = "Jeu_de_donnees",
                 fluidRow(
-                  dataTableOutput(outputId = "TableBiathlon")
+                  box(style='width:1000px;overflow-x: scroll;height:400px;overflow-y: scroll;',
+                      title = "Données Biathlon",
+                      dataTableOutput("TableBiathlon"), width = 1000)
                 )
         ),
         
