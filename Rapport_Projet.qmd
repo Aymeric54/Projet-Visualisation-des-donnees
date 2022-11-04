@@ -5,23 +5,57 @@ format: html
 editor: visual
 ---
 
-## Quarto
+## Choix du jeu de données
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+On voulait un jeu de données conséquent peu importe le sport pour :
 
-## Running Code
+-   Montrer qu'on savait trier et filtrer
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+-   Montrer qu'on pouvait répondre à des questions pertinentes
+
+-   Avoir la possibilité de faire beaucoup de graphiques pertinents afin de se répartir les tâches
+
+## Jeu de données : Biathlon saison 2019 à 2021
+
+Traitement du jeu de données :
 
 ```{r}
-1 + 1
+library(readxl)
+library(dplyr)
+Biathlon <- read_excel("App_Biathlon/Biathlon.xlsx")
+
+#On recrée une colonne retard car il manquait des valeurs
+Biathlon <- Biathlon |> mutate(Retard = Course_Time-Best_Course_Time)
+#On supprime les données manquantes dans Course_Time
+Biathlon <- subset(Biathlon, Course_Time != "NA")
+#On supprime les données manquantes dans Shooting
+Biathlon <- subset(Biathlon, Shooting != "NA")
+#Création d'un data.frame
+Biathlon <- data.frame(Biathlon)
+Biathlon
 ```
 
-You can add options to executable code like this
+On va reposer sur ce tableau tout au long de notre projet pou répondre aux différentes problématiques que nous nous sommes posés
 
-```{r}
-#| echo: false
-2 * 2
-```
+## Problématiques
 
-The `echo: false` option disables the printing of code (only output is displayed).
+1.  Quel homme a été le meilleur lors de la saison 2019/2020 - 2020/2021 et sur l'ensemble des 2 saisons ? Idem pour les femmes ?
+
+2.  Quelle est la nationalité la plus précise au tir ?
+
+3.  Le résultat de la course dépend le plus de quel paramètre ?
+
+4.  Est-ce que les types de départs (Mass-start, Sprint, Individual..) ont des conséquences sur la performance de ski et sur le shooting ?
+
+5.  Y a-t-il des pics de formes ?
+
+6.  Quelle est l'évolution du ranking au cours du temps par pays ?
+
+
+
+
+
+
+
+
+
